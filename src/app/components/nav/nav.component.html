@@ -1,0 +1,56 @@
+<!-- BEGIN HEADER -->
+<div class="header">
+  <div class="container">
+    <a class="site-logo" routerLink="home"><img src="assets/corporate/img/logos/logo-shop-red.png" alt="Metronic Shop UI"></a>
+
+    <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+    <app-cart-icon></app-cart-icon>
+
+    <!-- BEGIN NAVIGATION -->
+    <div class="header-navigation">
+      <ul>
+        <li><a (click)="navigateUrl()" style="cursor: pointer;">All Product</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+            Categories
+          </a>
+          <!-- BEGIN DROPDOWN MENU -->
+          <ul class="dropdown-menu">
+            <li *ngFor="let c of categories" style="cursor:pointer ;"><a (click)="navigate(c.id)">{{c.categoryName}}</a></li>
+          </ul>
+          <!-- END DROPDOWN MENU -->
+        </li>
+        <li *ngIf="!isAdmin"><a [routerLink]="['/orders']">Order</a></li>
+        <li *ngIf="isAdmin"  class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+            Admin
+          </a>
+          <ul class="dropdown-menu">
+            <li><a [routerLink]="['/admin/products']">Product</a></li>
+            <li><a [routerLink]="['/admin/orders']">Orders</a></li>
+          </ul>
+        </li>
+
+        <!-- BEGIN TOP SEARCH -->
+        <li class="menu-search">
+          <span class="sep"></span>
+          <i class="fa fa-search search-btn"></i>
+          <div class="search-box">
+            <form action="#">
+              <div class="input-group">
+                <input type="text" placeholder="Search" class="form-control" name = "key" [(ngModel)]="key">
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" type="submit" (click)="search()">Search</button>
+                </span>
+              </div>
+            </form>
+          </div>
+        </li>
+        <!-- END TOP SEARCH -->
+      </ul>
+    </div>
+    <!-- END NAVIGATION -->
+  </div>
+</div>
+<!-- Header END -->

@@ -1,0 +1,12 @@
+.mat-elevation-z8 {
+  table-layout: fixed;
+  width: 100%;
+  display: table;
+}
+td.mat-cell{
+    border-bottom-style: none;
+}
+
+th.mat-header-cell{
+    border-bottom-style: none;
+}

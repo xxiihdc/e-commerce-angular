@@ -1,0 +1,27 @@
+<div class="login-form">
+  <form #loginForm='ngForm'  (keypress)="keyPress($event,loginForm)">
+    <h1 style="color: black;">Login</h1>
+    <div class="content">
+      <div style="margin-bottom: 15px;">
+        <input type="email" class="form-control" placeholder="Email" ngModel name = "username" [(ngModel)]="username" >
+      </div>
+      <div  style="margin-bottom: 5px;">
+        <input type="password" class="form-control" placeholder="Password" ngModel name = "password" [(ngModel)]="password">
+        <small style="color: black;">{{errMsg}}</small>
+      </div>
+      <a href="#" class="link">Forgot Your Password?</a>
+    </div>
+    <div class="action">
+      <button>Register</button>
+      <button (click)="login(loginForm)">Sign in</button>
+      <button> <a [href]="link">Login with Google</a> </button>
+    </div>
+  </form>
+</div>
+<script>
+let form = document.querySelecter('form');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  return false;
+});
+</script>

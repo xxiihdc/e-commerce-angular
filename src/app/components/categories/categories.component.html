@@ -1,0 +1,7 @@
+<div class="sidebar col-md-3 col-sm-5">
+  <ul class="list-group margin-bottom-25 sidebar-menu">
+    <li *ngFor="let item of listCategory" class="list-group-item clearfix">
+      <a (click)="navigateUrl(item.id)"><i class="fa fa-angle-right"></i> {{item.categoryName}}</a>
+    </li>
+  </ul>
+</div>

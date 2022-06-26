@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1" >
+    <div class="goods-page" *ngIf="lstItem.length>0">
+      <div class="goods-data clearfix">
+        <div class="table-wrapper-responsive">
+          <table summary="Shopping cart">
+            <tr>
+              <th class="goods-page-image" style="width: 20%">Image</th>
+              <th class="goods-page-description">Description</th>
+              <th class="goods-page-quantity">Quantity</th>
+              <th class="goods-page-price">Unit price</th>
+              <th class="goods-page-discount">Discount</th>
+              <th class="goods-page-total">Total</th>
+              <th>Action</th>
+            </tr>
+              <tr *ngFor="let i of lstItem">
+                <td class="goods-page-image">
+                  <a href="javascript:;"><img [src]="'http://localhost:8080/api/v1/image/'+i.product.id"
+                      alt="Berry Lace Dress"></a>
+                </td>
+                <td class="goods-page-description">
+                  <h3><a href="javascript:;">{{i.product.name}}</a></h3>
+                  <p><strong>Item 1</strong> - Color: Green; Size: S</p>
+                  <em>More info is here</em>
+                </td>
+                <td class="goods-page-quantity">
+                  <div class="product-quantity">
+                    <input id="product-quantity" type="text" value="{{i.quantity}}" readonly class="form-control input-sm">
+                  </div>
+                </td>
+                <td class="goods-page-price">
+                  <strong><span>$</span>{{i.product.unitPrice}}</strong>
+                </td>
+                <td class="goods-page-price">
+                  <strong><span>$</span>{{(i.product.unitPrice/100) * i.product.discount}}</strong>
+                </td>
+                <td class="goods-page-total">
+                  <strong><span>$</span>{{(i.product.unitPrice - (i.product.unitPrice/100) * i.product.discount) * i.quantity}}</strong>
+                </td>
+                <td class="del-goods-col">
+                  Edit | Update
+                </td>
+              </tr>
+          </table>
+        </div>
+
+        <div class="shopping-total">
+          <ul>
+            <li>
+              <em>Sub total</em>
+              <strong class="price"><span>$</span>{{subTotal}}</strong>
+            </li>
+            <li>
+              <em>Shipping cost</em>
+              <strong class="price"><span>$</span>3.00</strong>
+            </li>
+            <li class="shopping-total-price">
+              <em>Total</em>
+              <strong class="price"><span>$</span>{{subTotal + 3}}</strong>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <button class="btn btn-default" (click)="continueShopping()">Continue shopping <i class="fa fa-shopping-cart"></i></button>
+      <button class="btn btn-primary" (click)="checkout()">Checkout <i class="fa fa-check"></i></button>
+    </div>
+    <div *ngIf="lstItem.length==0" class="text-center">
+      <p>Nothing is here, let's add product to cart  &#128526; </p>
+    </div>
+  </div>
+</div>

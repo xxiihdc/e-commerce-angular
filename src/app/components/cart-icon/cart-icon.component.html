@@ -1,0 +1,27 @@
+    <!-- BEGIN CART -->
+    <div class="top-cart-block">
+      <div class="top-cart-info">
+        <a href="javascript:void(0);" class="top-cart-info-count">{{sumItem}}</a>
+        <a href="javascript:void(0);" class="top-cart-info-value">{{amount | currency}}</a>
+      </div>
+      <i class="fa fa-shopping-cart"></i>
+      <div class="top-cart-content-wrapper">
+        <div class="top-cart-content">
+          <div *ngIf="lstItem.length==0">Nothing is else. Go shopping  ♥ </div>
+          <ul class="scroller" style="height: 250px;">
+            <div *ngFor="let item of lstItem">
+              <app-cart-item-mini [id]="item.id" [name]="item.product.name"
+              [productId]="item.product.id"
+              [quantity]="item.quantity"
+              [unitPrice]="item.unitPrice"
+              ></app-cart-item-mini>
+            </div>
+          </ul>
+
+          <div class="text-right">
+            <a [routerLink]="['/cart']" class="btn btn-primary">View Cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END CART -->

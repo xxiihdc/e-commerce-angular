@@ -1,0 +1,15 @@
+<div class="product-item">
+  <div class="pi-img-wrapper">
+    <img [src]='img' class="img-responsive img-new-item" [alt]='alt'>
+    <div>
+      <a [routerLink]="['/product',id]" class="btn btn-default">Detail</a>
+      <a (click)="showFastView(id)" class="btn btn-default">View</a>
+    </div>
+  </div>
+  <h3><a [routerLink]="['/product',id]">{{name}}</a></h3>
+  <div class="pi-price"><del><span>${{price}}</span></del>
+    <strong><span>{{price - (price*discount/100) | currency}} </span></strong>
+  </div>
+  <a (click)="addToCart(id)" class="btn btn-default add2cart">Add to cart</a>
+  <div class="{{sticker}}"></div>
+</div>

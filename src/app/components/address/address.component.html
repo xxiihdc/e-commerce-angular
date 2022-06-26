@@ -1,0 +1,48 @@
+<h1>Checkout</h1>
+<div class="content-form-page">
+  <form role="form" class="form-horizontal form-without-legend"  #address='ngForm' (ngSubmit)='send(address)'>
+    <div class="form-group">
+      <label class="col-lg-2 control-label" for="first-name">Phone<span class="require">*</span></label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control" name = "phone" ngModel
+         required pattern="^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">A.Number<span class="require">*</span></label>
+      <div class="col-lg-8">
+        <input type="text" ngModel class="form-control" name = "apartmentNumber" required  minlength="4">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Commune<span class="require">*</span></label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control" required ngModel name = "commune">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">District<span class="require">*</span></label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control" required ngModel name = "district">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label" for="telephone">Province<span class="require">*</span></label>
+      <div class="col-lg-8">
+        <input type="text" class="form-control" required ngModel name = "province">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label" for="message">Message</label>
+      <div class="col-lg-8">
+        <textarea class="form-control" rows="6"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-md-offset-2 padding-left-0 padding-top-20">
+        <button class="btn btn-primary" type="submit">Continue</button>
+        <input class="btn btn-danger" value="Cancel" (click)="close()">
+      </div>
+    </div>
+  </form>
+</div>

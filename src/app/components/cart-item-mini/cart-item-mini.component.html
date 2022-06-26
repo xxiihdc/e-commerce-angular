@@ -1,0 +1,8 @@
+<li>
+  <a href="shop-item.html"><img [src]="imgSrc" alt="Rolex Classic Watch" width="37" height="34"></a>
+  <span class="cart-content-count">{{quantity}}</span>
+  <strong><a [routerLink]="['/product',productId]">{{name}}</a></strong>
+  <em>{{unitPrice}}</em>
+<i class="far fa-times-circle" (click)="remove(id)"></i>
+</li>
+

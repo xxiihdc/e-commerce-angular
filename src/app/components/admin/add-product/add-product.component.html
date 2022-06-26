@@ -1,0 +1,94 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-1">
+        <form #loginForm='ngForm' enctype="multipart/form-data" (ngSubmit)='onSubmit(loginForm,img.files,subImg.files)'>
+          <div class="form-group">
+            <label class="col-lg-4 control-label" for="first-name">Product Id</label>
+            <div class="col-lg-8" style="padding-bottom: 10px;">
+              <input type="text" class="form-control" name="id" readonly ngModel [(ngModel)]="product.id">
+            </div>
+            <div class="form-group">
+              <label class="col-lg-4 control-label" for="first-name">Product Name <span class="require">*</span></label>
+              <div class="col-lg-8" style="padding-bottom: 10px;">
+                <input type="text" class="form-control" name="name" ngModel [(ngModel)]="product.name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-4 control-label" for="first-name">Quantity <span class="require">*</span></label>
+              <div class="col-lg-8" style="padding-bottom: 10px;">
+                <input type="number" class="form-control" name="quantity" ngModel [(ngModel)]="product.quantity">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-4 control-label" for="first-name">Unit Price <span class="require">*</span></label>
+              <div class="col-lg-8" style="padding-bottom: 10px;">
+                <input type="text" id="first-name" class="form-control" name="unitPrice" ngModel
+                  [(ngModel)]="product.unitPrice">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-4 control-label" for="first-name">Discount</label>
+              <div class="col-lg-8" style="padding-bottom: 10px;">
+                <input type="text" id="first-name" class="form-control" name="discount" ngModel
+                  [(ngModel)]="product.discount">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-4 control-label" for="first-name">Entered Date</label>
+              <div class="col-lg-8" style="padding-bottom: 10px;">
+                <input type="date" id="first-name" class="form-control" name="enteredDate" ngModel
+                  [(ngModel)]="product.enteredDate">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-4 control-label">Category<span class="require">*</span></label>
+              <div class="col-md-8" style="padding-bottom: 10px;">
+                <select class="form-control" name="categoryId" ngModel [(ngModel)]="product.categoryId">
+                  <option value=-1 disabled>Choose Category</option>
+                  <option *ngFor="let c of listCategory" [value]="c.id">{{c.categoryName}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-4 control-label" for="first-name">Status<span class="require">*</span></label>
+              <div class="col-md-8" style="padding-bottom: 10px;">
+                <select class="form-control" name="status" ngModel [(ngModel)]="product.status">
+                  <option value=-1 disabled>Choose Status of Product</option>
+                  <option *ngFor="let s of listStatus" [value]="s.id">{{s.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-4 control-label" for="first-name">Avatar <span class="require">*</span></label>
+              <div class="col-lg-8" style="padding-bottom: 10px;">
+                <input type="file" class="form-control" (change)="readUrl($event);" name="file" #img>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-4 control-label" for="first-name">Sub Image <span class="require">*</span></label>
+              <div class="col-lg-8" style="padding-bottom: 10px;">
+                <input type="file" class="form-control" name="file" #subImg multiple [max]="3" (change)="multipleChange($event)">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-4 control-label" for="message">Description</label>
+            <div class="col-lg-8" style="padding-bottom: 10px;">
+              <textarea class="form-control" rows="3" name="description" ngModel
+                [(ngModel)]="product.description"></textarea>
+            </div>
+          </div>
+          <div class="col btn-div" >
+            <button class="btn btn-primary" type="submit" style="margin-right:50px; margin-right: 100px;">Save</button>
+            <input type="button" class="btn btn-danger" style="margin-left:50px ;" (click)="cancel()" value="Cancel"/>
+          </div>
+
+        </form>
+      </div>
+      <div class="col-md-4" style="margin-top:10px;">
+        <img [src]="url" *ngIf="url" alt="anh product" class="img-responsive " width="300">
+      </div>
+    </div>
+  </div>
+</div>

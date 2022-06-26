@@ -1,0 +1,6 @@
+*{
+    color: black;
+}
+btn-div > button{
+    margin: 100px !important;
+}

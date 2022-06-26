@@ -1,0 +1,24 @@
+td,th {
+    text-align: center;
+    vertical-align: middle !important;
+  }
+#page-info{
+  display: flex;
+  justify-content: end;
+}
+#current_page{
+  width: 35px;
+  border: none;
+}
+.admin-action{
+  cursor: pointer;
+}
+.box{
+  margin-bottom: 15px;
+}
+.form-control-custom{
+  background-color: #eee;
+}
+.btn-col{
+  margin-top: 10px;
+}

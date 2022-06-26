@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@import url(assets/plugins/font-awesome/css/font-awesome.min.css);
+@import url(assets/plugins/bootstrap/css/bootstrap.min.css);
+@import url(assets/pages/css/animate.css);
+@import url(assets/plugins/fancybox/source/jquery.fancybox.css);
+@import url(assets/plugins/owl.carousel/assets/owl.carousel.css);
+@import url(assets/pages/css/components.css);
+@import url(assets/pages/css/slider.css);
+@import url(assets/pages/css/style-shop.css);
+@import url(assets/corporate/css/style.css);
+@import url(assets/corporate/css/style-responsive.css);
+@import url(assets/corporate/css/themes/red.css);
+@import url(assets/corporate/css/custom.css);
+@import '~ngx-toastr/toastr.css';
+.myCustomDialog{
+    padding: 0px;
+    margin: 0px;
+  }
+.mat-dialog-container{
+    margin: 0px !important;
+    padding: 0px !important;
+    background: white !important;
+}

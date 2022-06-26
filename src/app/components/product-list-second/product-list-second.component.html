@@ -1,0 +1,13 @@
+<div class="col-md-9 col-sm-8">
+  <h2>New Products</h2>
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide *ngFor="let p of listNewProduct">
+      <div>
+          <app-product-item [name]="p.name" [sticker]="'sticker sticker-new'"
+              [img]="'http://localhost:8080/api/v1/image/'+p.id" [price]="p.unitPrice" [id]="p.id"
+              [discount]="p.discount">
+          </app-product-item>
+      </div>
+  </ng-template>
+</owl-carousel-o>
+</div>

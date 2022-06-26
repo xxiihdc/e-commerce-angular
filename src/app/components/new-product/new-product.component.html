@@ -1,0 +1,11 @@
+<h2>Top Sale Arrivals</h2>
+<owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide *ngFor="let p of listNewProduct">
+        <div>
+            <app-product-item [name]="p.name" [sticker]="'sticker sticker-sale'"
+                [img]="'http://localhost:8080/api/v1/image/'+p.id" [price]="p.unitPrice" [id]="p.id"
+                [discount]="p.discount">
+            </app-product-item>
+        </div>
+    </ng-template>
+</owl-carousel-o>

@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <app-breadcrumb></app-breadcrumb>
+    <div class="box row panel">
+      <div class="col-md-2">
+        <div class="checkbox">
+          <label><input type="checkbox" (change)="stopBusiness($event)">Stop business Product</label>
+        </div>
+      </div>
+      <div class="col-md-3 col-md-offset-6 btn-col">
+        <button (click)="openDialog()">Add product</button>
+      </div>
+    </div>
+    <table class="table table-bordered table-hover table-striped">
+      <thead>
+        <tr class="table-warning">
+          <th scope="col">#</th>
+          <th scope="col">Avatar</th>
+          <th scope="col">Product Id</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Category</th>
+          <th scope="col">Description</th>
+          <th scope="col">Entered Date</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of (lstProduct.content), let i = index " [attr.data-index]="i">
+          <th scope="row">{{(i+1)+((lstProduct.number)*5)}}</th>
+          <td><img [src]="'http://localhost:8080/api/v1/image/'+item.id" alt="" width="80"></td>
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.category.categoryName}}</td>
+          <td>{{item.description}}</td>
+          <td>{{lstStatus[item.status].name}}</td>
+          <td>{{item.enteredDate | date: 'dd/MM/yyyy'}}</td>
+          <td> <a [routerLink] = "['/product',item.id]">View</a> |
+            <a (click)="openDialog(item.id)" class = "admin-action">Edit</a>
+             | Update </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="col-md-4">
+    </div>
+    <nav aria-label="Page navigation example" class="col-md-4">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" [routerLink]="['/admin']" [queryParams]="{page: '0'}" (click)="jump('0')">First</a></li>
+        <li class="page-item">
+          <a class="page-link" [routerLink]="['/admin']" [queryParams]="{page: lstProduct.number-1}" (click)="jump(''+(lstProduct.number-1))">Previous</a></li>
+        <li class="page-item">
+          <a class="page-link" [routerLink]="['/admin']" [queryParams]="{page: lstProduct.number+1}" (click)="jump(''+(lstProduct.number+1))">Next</a></li>
+        <li class="page-item">
+          <a class="page-link" [routerLink]="['/admin']" [queryParams]="{page: lstProduct.totalPages-1}" (click)="jump(''+(lstProduct.totalPages-1))">Last</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Page navigation example" class="col-md-4" id = "page-info">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link">Current Page:
+          <input type="text" id = "current_page" name = "page1" value="{{lstProduct.number+1}}" (keypress)="jumpTo($event)"></a></li>
+        <li class="page-item"><a class="page-link">Total Page: {{lstProduct.totalPages}}</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+

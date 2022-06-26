@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-body register-card-body">
+        <p class="login-box-msg">Register a new membership</p>
+        <form method="post">
+          <div class="mb-2">
+            <div>
+              <input type="text" class="form-control" name="fullName" placeholder="Full name" ngModel required>
+              <div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <small class="ml-1 pl-1 text-muted">Full name is not empty</small>
+          </div>
+          <div class="mb-2">
+            <div>
+              <input type="text" class="form-control" placeholder="Phone number" name="phone"
+              required pattern="^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$" ngModel>
+            </div>
+            <small id="userError" class="ml-1 pl-1">Phone number is not empty</small>
+          </div>
+          <div class="mb-2">
+            <div>
+              <input type="email" class="form-control" placeholder="Email" name="email" required="email">
+              <div>
+                <div>
+                </div>
+              </div>
+            </div>
+            <small id="emailError" class="ml-1 pl-1 text-muted">Email is not empty</small>
+          </div>
+          <div class="mb-2">
+            <div>
+              <input type="password" class="form-control" placeholder="Password" name="password">
+              <div>
+                <div>
+
+                </div>
+              </div>
+            </div>
+            <small class="ml-1 pl-1 text-muted"> Mật khẩu ít nhất 6 ký
+              tự</small>
+          </div>
+          <div class="mb-2">
+            <div>
+              <input type="password" class="form-control" placeholder="Retype password" name="repassword">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" id="agreeTerms" name="terms" value="agree"> <label for="agreeTerms"> I agree
+                  to the <a href="#">terms</a>
+                </label>
+              </div>
+            </div>
+            <!-- /.col -->
+            <div id="div-btn">
+              <button type="submit" class="btn btn-primary btn-block" id="submit">Register</button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>

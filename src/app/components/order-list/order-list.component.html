@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center">
+    <div class="panel">
+      <div class="panel-body">
+        <h1>Order List</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-10 col-md-offset-1">
+    <div *ngFor="let item of lst">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-2">
+              <p>Order id: {{item.id}}</p>
+              <p>Date: {{item.date | date: 'dd/MM/yyyy'}}</p>
+              <p>Status: {{status[item.status].name }}</p>
+            </div>
+            <div class="col-md-6">
+              <p>Delivery Info: <br/> {{item.description}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <table class="table table-bordered table-hover table-striped">
+            <thead>
+              <tr class="table-warning">
+                <th scope="col">#</th>
+                <th scope="col">Avatar</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Unit price</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let i of item.orderItems, let index = index " [attr.data-index]="i">
+                <th scope="row">{{(index+1)}}</th>
+                <td><img [src]="'http://localhost:8080/api/v1/image/'+i.product.id" alt="" width="80"></td>
+                <td>{{i.product.name}}</td>
+                <td>{{i.quantity}}</td>
+                <td>{{i.unitPrice | currency }}</td>
+                <td>{{(i.unitPrice/100) * i.product.discount | currency}}</td>
+                <td>{{ (i.unitPrice - (i.unitPrice/100) * i.product.discount) * i.quantity}} </td>
+
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>

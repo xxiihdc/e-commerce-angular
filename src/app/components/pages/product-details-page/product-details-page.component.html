@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <app-breadcrumb></app-breadcrumb>
+    <app-categories></app-categories>
+    <div class="col-md-9" style="background-color: white;">
+      <div class="row">
+        <app-item-details [id]="id"></app-item-details>
+      </div>
+      <div class="row">
+        <h1>SIMILAR PRODUCTS</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let p of similarProduct">
+          <app-product-item [name]="p.productName + '- Sold: ' + p.quantity"
+            [img]="'http://localhost:8080/api/v1/image/'+p.productId" [price]="p.unitPrice" [id]="p.productId" [discount]="p.discount">
+          </app-product-item>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

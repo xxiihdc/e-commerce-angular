@@ -1,0 +1,72 @@
+<!-- BEGIN CONTENT -->
+<div class="product-page">
+  <div>
+    <div class="col-md-6 col-sm-6">
+      <div class="product-main-image">
+        <img id="product__avt" [src]="imgSrc" class="img-responsive">
+      </div>
+      <div class="product-other-images">
+        <img class="other-img" alt="Product Sub Image" [src]="'http://localhost:8080/api/v1/image/sub/'+product.id+'/1'"
+          onclick="swap(0)">
+        <img class="other-img" alt="Product Sub Image" [src]="'http://localhost:8080/api/v1/image/sub/'+product.id+'/2'"
+          onclick="swap(1)">
+        <img class="other-img" alt="Product Sub Image" [src]="'http://localhost:8080/api/v1/image/sub/'+product.id+'/3'"
+          onclick="swap(2)">
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <h1 style="color: black;">{{product.name}}</h1>
+      <div class="price-availability-block clearfix">
+        <div class="price">
+          <strong><span>$</span>{{realPrice}}</strong>
+          <em>$<span>{{product.unitPrice}}</span></em>
+        </div>
+        <div class="availability">
+          Availability: <strong>In Stock</strong>
+        </div>
+      </div>
+      <div class="description">
+        <p style="color: black;">{{product.description}}
+      </div>
+      <div class="product-page-options">
+        <div class="pull-left">
+          <label class="control-label">Size:</label>
+          <select class="form-control input-sm">
+            <option>L</option>
+            <option>M</option>
+            <option>XL</option>
+          </select>
+        </div>
+        <div class="pull-left">
+          <label class="control-label">Color:</label>
+          <select class="form-control input-sm">
+            <option>Red</option>
+            <option>Blue</option>
+            <option>Black</option>
+          </select>
+        </div>
+      </div>
+      <div class="product-page-cart">
+        <div class="product-quantity">
+          <input id="product-quantity" type="number" [(ngModel)]="quantity" min=0 class="form-control input-sm">
+        </div>
+        <button class="btn btn-primary" (click)="addToCart()">Add to cart</button>
+      </div>
+      <div class="review">
+        <input type="range" value="4" step="0.25" id="backing4">
+        <div class="rateit" data-rateit-backingfld="#backing4" data-rateit-resetable="false" data-rateit-ispreset="true"
+          data-rateit-min="0" data-rateit-max="5">
+        </div>
+        <a href="javascript:;">7 reviews</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:;">Write a review</a>
+      </div>
+      <ul class="social-icons">
+        <li><a class="facebook" data-original-title="facebook" href="javascript:;"></a></li>
+        <li><a class="twitter" data-original-title="twitter" href="javascript:;"></a></li>
+        <li><a class="googleplus" data-original-title="googleplus" href="javascript:;"></a></li>
+        <li><a class="evernote" data-original-title="evernote" href="javascript:;"></a></li>
+        <li><a class="tumblr" data-original-title="tumblr" href="javascript:;"></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- END CONTENT -->
